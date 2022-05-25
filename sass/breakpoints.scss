@@ -1,0 +1,54 @@
+/*
+  Sass mixins to help with breakpoint-related media queries.
+
+  Copyright (C) 2022 Damien Dart, <damiendart@pobox.com>.
+  This file is distributed under the MIT licence. For more information,
+  please refer to the accompanying "LICENCE" file.
+*/
+
+@use "sass:map";
+@use "sass:math";
+
+$breakpoints: (
+  x-small: 320px,
+  small: 480px,
+  medium: 768px,
+  large: 1024px,
+  x-large: 1140px,
+);
+
+@function px-to-em($value, $base-font-size: 16px) {
+  @return math.div($value, $base-font-size) * 1em;
+}
+
+@mixin breakpoint-between(
+  $lower-breakpoint,
+  $upper-breakpoint,
+  $breakpoints: $breakpoints
+) {
+  $lower-width: map.get($breakpoints, $lower-breakpoint);
+  $upper-width: map.get($breakpoints, $upper-breakpoint) - 1;
+
+  @media only screen
+    and (min-width: #{px-to-em($lower-width)})
+    and (max-width: #{px-to-em($upper-width)})
+  {
+    @content
+  }
+}
+
+@mixin breakpoint-down($breakpoint, $breakpoints: $breakpoints) {
+  $width: map.get($breakpoints, $breakpoint) - 1;
+
+  @media only screen and (max-width: #{px-to-em($width)}) {
+    @content
+  }
+}
+
+@mixin breakpoint-up($breakpoint, $breakpoints: $breakpoints) {
+  $width: map.get($breakpoints, $breakpoint);
+
+  @media only screen and (min-width: #{px-to-em($width)}) {
+    @content
+  }
+}
