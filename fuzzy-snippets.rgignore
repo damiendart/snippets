@@ -4,6 +4,10 @@
 
 .editorconfig
 .git
+composer.json
+composer.lock
+fuzzy-snippets.rgignore
 LICENCE
 package.json
 package-lock.json
+Taskfile.yml
