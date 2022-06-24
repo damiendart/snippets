@@ -9,6 +9,7 @@ function debounce(callback, interval) {
 
   return (...args) => {
     clearTimeout(debounceTimeoutID);
+
     debounceTimeoutID = setTimeout(
       () => callback.apply(this, args),
       interval,
