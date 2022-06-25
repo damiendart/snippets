@@ -1,0 +1,15 @@
+/*
+  A Sass mixin for targeting Internet Explorer 11 (and 10).
+
+  Based on <https://stackoverflow.com/a/20541859>.
+
+  Copyright (C) 2022 Damien Dart, <damiendart@pobox.com>.
+  This file is distributed under the MIT licence. For more information,
+  please refer to the accompanying "LICENCE" file.
+*/
+
+@mixin ie-11-only {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content
+  }
+}
