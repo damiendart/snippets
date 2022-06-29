@@ -6,7 +6,7 @@
 .git
 composer.json
 composer.lock
-fuzzy-snippets.rgignore
+fuzzy-snippets.ignore
 LICENCE
 package.json
 package-lock.json
