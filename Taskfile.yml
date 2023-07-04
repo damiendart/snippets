@@ -51,7 +51,7 @@ tasks:
 
   lint:javascript:
     cmds:
-      - 'node_modules/.bin/eslint javascript/**'
+      - 'node_modules/.bin/eslint snippets/*.js'
     desc: 'Lint JavaScript files with ESLint'
 
   lint:php:
