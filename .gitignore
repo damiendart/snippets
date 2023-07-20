@@ -1,8 +1,9 @@
-# Copyright (C) 2022 Damien Dart, <damiendart@pobox.com>.
+# Copyright (C) 2023 Damien Dart, <damiendart@pobox.com>.
 # This file is distributed under the MIT licence. For more information,
 # please refer to the accompanying "LICENCE" file.
 
 .php-cs-fixer.cache
 .task
 node_modules
+snippet-placeholder/snippet-placeholder
 vendor
