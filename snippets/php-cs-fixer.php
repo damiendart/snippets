@@ -1,20 +1,20 @@
 <?php
 
 /*
- * Copyright (C) 2022 Damien Dart, <damiendart@pobox.com>.
+ * Copyright (C) 2023 Damien Dart, <damiendart@pobox.com>.
  * This file is distributed under the MIT licence. For more information,
  * please refer to the accompanying "LICENCE" file.
  */
 
 /*
  * A generic ".php-cs-fixer.php" containing a bunch of house rules for
- * personal projects using PHP 8 and above.
+ * personal projects using PHP 8.2 and above.
  */
 
 declare(strict_types=1);
 
 $header = <<<'HEADER'
-Copyright (C) 2022 Damien Dart, <damiendart@pobox.com>.
+Copyright (C) 2023 Damien Dart, <damiendart@pobox.com>.
 This file is distributed under the MIT licence. For more information,
 please refer to the accompanying "LICENCE" file.
 HEADER;
