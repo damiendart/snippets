@@ -22,12 +22,12 @@ tasks:
       - task: 'lint'
       - task: 'test'
       - task: 'build'
-    desc: 'Run all CI-related tasks'
+    desc: 'Run continuous integration tasks for "snippet-placeholder"'
 
   clean:
     cmds:
       - 'rm -fr snippet-placeholder'
-    desc: 'Delete all buildable files'
+    desc: 'Delete the "snippet-placeholder" application'
 
   build:
     cmds:
@@ -39,7 +39,7 @@ tasks:
       - task: 'lint:golint'
       - task: 'lint:staticcheck'
       - task: 'lint:vet'
-    desc: 'Run all linting-related tasks'
+    desc: 'Run all linting tasks for "snippet-placeholder"'
 
   lint:golint:
     cmds:
