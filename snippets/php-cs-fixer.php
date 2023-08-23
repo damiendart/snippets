@@ -1,20 +1,20 @@
 <?php
 
 /*
- * Copyright (C) 2023 Damien Dart, <damiendart@pobox.com>.
+ * Copyright (C) Damien Dart, <damiendart@pobox.com>.
  * This file is distributed under the MIT licence. For more information,
  * please refer to the accompanying "LICENCE" file.
  */
 
 /*
  * A generic ".php-cs-fixer.php" containing a bunch of house rules for
- * personal projects using PHP 8.2 and above.
+ * personal projects using PHP 8.2 (and above).
  */
 
 declare(strict_types=1);
 
 $header = <<<'HEADER'
-Copyright (C) 2023 Damien Dart, <damiendart@pobox.com>.
+Copyright (C) Damien Dart, <damiendart@pobox.com>.
 This file is distributed under the MIT licence. For more information,
 please refer to the accompanying "LICENCE" file.
 HEADER;
@@ -39,10 +39,21 @@ return (new PhpCsFixer\Config())
             ],
             'ordered_imports' => ['sort_algorithm' => 'alpha'],
             'phpdoc_align' => ['align' => 'left'],
+            'php_unit_method_casing' => ['case' => 'snake_case'],
+            'php_unit_test_class_requires_covers' => true,
             'trailing_comma_in_multiline' => [
                 'elements' => ['arrays', 'arguments', 'parameters'],
             ],
             'void_return' => true,
         ],
     )
-    ->setFinder(PhpCsFixer\Finder::create()->in(__DIR__)->name('*.php'));
+    ->setFinder(
+        PhpCsFixer\Finder::create()
+            ->in(
+                [
+                    __DIR__,
+                    // ...
+                ],
+            )
+            ->name('*.php'),
+    );
