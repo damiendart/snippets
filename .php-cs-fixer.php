@@ -6,4 +6,6 @@
  * please refer to the accompanying "LICENCE" file.
  */
 
+declare(strict_types=1);
+
 return require_once 'snippets/php-cs-fixer.php';
