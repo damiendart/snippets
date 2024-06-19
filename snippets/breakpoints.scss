@@ -21,26 +21,38 @@ $breakpoints: (
   @return math.div($value, $base-font-size) * 1em;
 }
 
+// The "and (not)" media query syntax is used to prevent sub-pixel gaps
+// between breakpoints. If older browser support isn't required, the
+// media query range syntax can be used to accomplish this instead. For
+// more information, see <https://codepen.io/joshtumath/pen/dyEZVqY>
+// and <https://miragecraft.com/blog/polyfill-for-media-range-syntax>.
+
 @mixin breakpoint-between(
   $lower-breakpoint,
   $upper-breakpoint,
   $breakpoints: $breakpoints
 ) {
-  $lower-width: map.get($breakpoints, $lower-breakpoint);
-  $upper-width: map.get($breakpoints, $upper-breakpoint) - 1;
+  $lower-width: map.get(variables.$breakpoints, $lower-breakpoint);
+  $upper-width: map.get(variables.$breakpoints, $upper-breakpoint);
 
-  @media only screen
-    and (min-width: #{px-to-em($lower-width)})
-    and (max-width: #{px-to-em($upper-width)})
+  @media
+    only screen
+    and (min-width: #{functions.px-to-em($lower-width)})
+    and (max-width: #{functions.px-to-em($upper-width)})
+    and (not (width: #{functions.px-to-em($upper-width)}))
   {
     @content
   }
 }
 
 @mixin breakpoint-down($breakpoint, $breakpoints: $breakpoints) {
-  $width: map.get($breakpoints, $breakpoint) - 1;
+  $width: map.get(variables.$breakpoints, $breakpoint);
 
-  @media only screen and (max-width: #{px-to-em($width)}) {
+  @media
+    only screen
+    and (max-width: #{functions.px-to-em($width)})
+    and (not (width: #{functions.px-to-em($width)}))
+  {
     @content
   }
 }
